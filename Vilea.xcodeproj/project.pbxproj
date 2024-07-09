@@ -19,6 +19,17 @@
 		9E7BA50E2C3C867C00A5B0A7 /* OSLog+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA50D2C3C867C00A5B0A7 /* OSLog+Extensions.swift */; };
 		9E7BA5102C3C897800A5B0A7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA50F2C3C897800A5B0A7 /* ListViewController.swift */; };
 		9E7BA5122C3C8BB600A5B0A7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5112C3C8BB600A5B0A7 /* MainTabBarController.swift */; };
+		9E7BA5152C3CA92100A5B0A7 /* ChargerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5142C3CA92100A5B0A7 /* ChargerRepository.swift */; };
+		9E7BA5172C3CACDB00A5B0A7 /* ChargerLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5162C3CACDB00A5B0A7 /* ChargerLocalRepository.swift */; };
+		9E7BA5192C3CACE300A5B0A7 /* ChargerRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5182C3CACE300A5B0A7 /* ChargerRemoteRepository.swift */; };
+		9E7BA51B2C3CAD7D00A5B0A7 /* Charger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA51A2C3CAD7D00A5B0A7 /* Charger.swift */; };
+		9E7BA51E2C3D7FD100A5B0A7 /* EVSERoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA51D2C3D7FD100A5B0A7 /* EVSERoot.swift */; };
+		9E7BA5202C3D7FE400A5B0A7 /* EVSEData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA51F2C3D7FE400A5B0A7 /* EVSEData.swift */; };
+		9E7BA5222C3D7FFA00A5B0A7 /* EVSEDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5212C3D7FFA00A5B0A7 /* EVSEDataRecord.swift */; };
+		9E7BA5242C3D802100A5B0A7 /* GeoCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5232C3D802100A5B0A7 /* GeoCoordinates.swift */; };
+		9E7BA5262C3D804200A5B0A7 /* ChargingFacility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5252C3D804200A5B0A7 /* ChargingFacility.swift */; };
+		9E7BA52A2C3D82C700A5B0A7 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5292C3D82C700A5B0A7 /* Data+Extensions.swift */; };
+		9E7BA52C2C3D84B900A5B0A7 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA52B2C3D84B900A5B0A7 /* AppConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +66,17 @@
 		9E7BA50D2C3C867C00A5B0A7 /* OSLog+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+Extensions.swift"; sourceTree = "<group>"; };
 		9E7BA50F2C3C897800A5B0A7 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9E7BA5112C3C8BB600A5B0A7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		9E7BA5142C3CA92100A5B0A7 /* ChargerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerRepository.swift; sourceTree = "<group>"; };
+		9E7BA5162C3CACDB00A5B0A7 /* ChargerLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerLocalRepository.swift; sourceTree = "<group>"; };
+		9E7BA5182C3CACE300A5B0A7 /* ChargerRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerRemoteRepository.swift; sourceTree = "<group>"; };
+		9E7BA51A2C3CAD7D00A5B0A7 /* Charger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charger.swift; sourceTree = "<group>"; };
+		9E7BA51D2C3D7FD100A5B0A7 /* EVSERoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSERoot.swift; sourceTree = "<group>"; };
+		9E7BA51F2C3D7FE400A5B0A7 /* EVSEData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEData.swift; sourceTree = "<group>"; };
+		9E7BA5212C3D7FFA00A5B0A7 /* EVSEDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEDataRecord.swift; sourceTree = "<group>"; };
+		9E7BA5232C3D802100A5B0A7 /* GeoCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoordinates.swift; sourceTree = "<group>"; };
+		9E7BA5252C3D804200A5B0A7 /* ChargingFacility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingFacility.swift; sourceTree = "<group>"; };
+		9E7BA5292C3D82C700A5B0A7 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		9E7BA52B2C3D84B900A5B0A7 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +177,7 @@
 		9E7BA5062C3C85DB00A5B0A7 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				9E7BA5132C3CA90F00A5B0A7 /* Charger */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -162,6 +185,8 @@
 		9E7BA5072C3C85F200A5B0A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9E7BA51C2C3D7FC400A5B0A7 /* Decoding */,
+				9E7BA51A2C3CAD7D00A5B0A7 /* Charger.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +194,7 @@
 		9E7BA5082C3C860400A5B0A7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9E7BA52B2C3D84B900A5B0A7 /* AppConfig.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -177,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				9E7BA50D2C3C867C00A5B0A7 /* OSLog+Extensions.swift */,
+				9E7BA5292C3D82C700A5B0A7 /* Data+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +217,28 @@
 				9E7BA4DD2C3C83F500A5B0A7 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9E7BA5132C3CA90F00A5B0A7 /* Charger */ = {
+			isa = PBXGroup;
+			children = (
+				9E7BA5162C3CACDB00A5B0A7 /* ChargerLocalRepository.swift */,
+				9E7BA5182C3CACE300A5B0A7 /* ChargerRemoteRepository.swift */,
+				9E7BA5142C3CA92100A5B0A7 /* ChargerRepository.swift */,
+			);
+			path = Charger;
+			sourceTree = "<group>";
+		};
+		9E7BA51C2C3D7FC400A5B0A7 /* Decoding */ = {
+			isa = PBXGroup;
+			children = (
+				9E7BA51D2C3D7FD100A5B0A7 /* EVSERoot.swift */,
+				9E7BA51F2C3D7FE400A5B0A7 /* EVSEData.swift */,
+				9E7BA5212C3D7FFA00A5B0A7 /* EVSEDataRecord.swift */,
+				9E7BA5232C3D802100A5B0A7 /* GeoCoordinates.swift */,
+				9E7BA5252C3D804200A5B0A7 /* ChargingFacility.swift */,
+			);
+			path = Decoding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,12 +371,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E7BA51E2C3D7FD100A5B0A7 /* EVSERoot.swift in Sources */,
 				9E7BA50E2C3C867C00A5B0A7 /* OSLog+Extensions.swift in Sources */,
 				9E7BA4D62C3C83F400A5B0A7 /* MapViewController.swift in Sources */,
+				9E7BA52A2C3D82C700A5B0A7 /* Data+Extensions.swift in Sources */,
+				9E7BA5242C3D802100A5B0A7 /* GeoCoordinates.swift in Sources */,
+				9E7BA5192C3CACE300A5B0A7 /* ChargerRemoteRepository.swift in Sources */,
 				9E7BA4D22C3C83F400A5B0A7 /* AppDelegate.swift in Sources */,
 				9E7BA5122C3C8BB600A5B0A7 /* MainTabBarController.swift in Sources */,
+				9E7BA5202C3D7FE400A5B0A7 /* EVSEData.swift in Sources */,
+				9E7BA52C2C3D84B900A5B0A7 /* AppConfig.swift in Sources */,
+				9E7BA5222C3D7FFA00A5B0A7 /* EVSEDataRecord.swift in Sources */,
+				9E7BA5262C3D804200A5B0A7 /* ChargingFacility.swift in Sources */,
 				9E7BA4D42C3C83F400A5B0A7 /* SceneDelegate.swift in Sources */,
 				9E7BA4DC2C3C83F400A5B0A7 /* Vilea.xcdatamodeld in Sources */,
+				9E7BA5152C3CA92100A5B0A7 /* ChargerRepository.swift in Sources */,
+				9E7BA5172C3CACDB00A5B0A7 /* ChargerLocalRepository.swift in Sources */,
+				9E7BA51B2C3CAD7D00A5B0A7 /* Charger.swift in Sources */,
 				9E7BA5102C3C897800A5B0A7 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
