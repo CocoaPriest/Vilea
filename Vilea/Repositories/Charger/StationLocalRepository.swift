@@ -20,13 +20,35 @@ class StationLocalRepository {
        return appDelegate.persistentContainer.viewContext
     }
 
-    func staticStations() -> [Station] {
+    // Load cached stations
+    @MainActor
+    func stations() -> [Station] {
         let fetchRequest = NSFetchRequest<Station>(entityName: "Station")
 
         do {
             return try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
-            OSLog.general.error("Could not fetch static stations \(error), \(error.userInfo)")
+            OSLog.general.error("Could not load cached stations \(error), \(error.userInfo)")
+        }
+
+        return []
+    }
+
+    // Load cached availabilities
+    func stationStates() -> [StationState] {
+        let fetchRequest = NSFetchRequest<State>(entityName: "State")
+
+        do {
+            let states = try managedContext.fetch(fetchRequest)
+            return states.compactMap { state in
+                guard let stationId = state.stationId,
+                        let availability = state.availability else { return nil }
+                return StationState(stationId: stationId,
+                                    availability: StationAvailability(rawValue: availability) ?? .unknown)
+            }
+
+        } catch let error as NSError {
+            OSLog.general.error("Could not load cached states \(error), \(error.userInfo)")
         }
 
         return []
@@ -45,6 +67,35 @@ class StationLocalRepository {
         }
 
         return []
+    }
+
+    @MainActor
+    func storeDynamicStationData(_ evseStatuses: EVSEStatusesRoot) -> [StationState] {
+        let stationStates = evseStatuses.statuses.flatMap { $0.statusRecords }.map {
+            StationState(stationId: $0.stationId, availability: StationAvailability(rawValue: $0.status) ?? .unknown)
+        }
+
+        // Delete all existing records
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "State")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        // Store
+        stationStates.forEach { [weak self] stationState in
+            guard let self else { return }
+            let state = State(context: self.managedContext)
+            state.stationId = stationState.stationId
+            state.availability = stationState.availability.rawValue
+        }
+
+        do {
+            try managedContext.execute(batchDeleteRequest)
+            try managedContext.save()
+            OSLog.general.log("Saving dynamic station data successfully")
+        } catch let error as NSError {
+            OSLog.general.error("Saving dynamic station data failed: \(error)")
+        }
+
+        return stationStates
     }
 
     // Create Stations from raw data

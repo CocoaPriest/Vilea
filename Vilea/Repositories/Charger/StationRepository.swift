@@ -19,30 +19,48 @@ class StationRepository {
     }
 
     @Published private(set) var dataState: State = .default
+    @Published private(set) var stationStates: [StationState] = []
 
     private let remote = StationRemoteRepository()
     private let local = StationLocalRepository()
 
-    func fetchStaticData() {
-        dataState = .loading
-
-        let staticStations = local.staticStations()
-        if staticStations.isEmpty {
-            Task {
+    func fetchStations() {
+        Task {
+            dataState = .loading
+            
+            let stations = await local.stations()
+            if stations.isEmpty {
                 do {
-                    let data = try await remote.fetchStaticData()
+                    let staticData = try await remote.fetchStaticData()
                     OSLog.general.log("Fetching static station data has finished")
-
-                    let evseRootData: EVSERoot = try data.decoded()
+                    
+                    let evseRootData: EVSERoot = try staticData.decoded()
                     let staticStations = await local.storeStaticStationData(evseRootData)
                     dataState = .loaded(staticStations)
                 } catch {
-                    OSLog.general.error("Failure occured during fetching station api: \(error.localizedDescription)")
+                    OSLog.general.error("Failure occured during fetching stations: \(error.localizedDescription)")
                     dataState = .failed
                 }
+            } else {
+                OSLog.general.log("Cached static station available: \(stations.count) records.")
+                dataState = .loaded(stations)
             }
-        } else {
-            dataState = .loaded(staticStations)
+
+            // In any case, fetch availability data
+            do {
+                let dynamicData = try await remote.fetchDynamicData()
+                OSLog.general.log("Fetching dynamic station data has finished")
+                
+                let evseStatuses: EVSEStatusesRoot = try dynamicData.decoded()
+                self.stationStates = await local.storeDynamicStationData(evseStatuses)
+            } catch {
+                OSLog.general.error("Failure occured during fetching dynamic data: \(error.localizedDescription)")
+            }
         }
+    }
+
+    // For the case user is offline
+    func loadCachedDynamicData() {
+        self.stationStates = local.stationStates()
     }
 }

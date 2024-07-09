@@ -29,6 +29,11 @@
 		9E7BA5262C3D804200A5B0A7 /* ChargingFacility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5252C3D804200A5B0A7 /* ChargingFacility.swift */; };
 		9E7BA52A2C3D82C700A5B0A7 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5292C3D82C700A5B0A7 /* Data+Extensions.swift */; };
 		9E7BA52C2C3D84B900A5B0A7 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA52B2C3D84B900A5B0A7 /* AppConfig.swift */; };
+		9E7BA52E2C3DE2FF00A5B0A7 /* Station+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA52D2C3DE2FF00A5B0A7 /* Station+Extensions.swift */; };
+		9E7BA5302C3DF45800A5B0A7 /* EVSEStatusesRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA52F2C3DF45800A5B0A7 /* EVSEStatusesRoot.swift */; };
+		9E7BA5322C3DF6FE00A5B0A7 /* StationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5312C3DF6FE00A5B0A7 /* StationState.swift */; };
+		9E7BA5342C3DFAFE00A5B0A7 /* EVSEStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5332C3DFAFE00A5B0A7 /* EVSEStatus.swift */; };
+		9E7BA5362C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +80,11 @@
 		9E7BA5252C3D804200A5B0A7 /* ChargingFacility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingFacility.swift; sourceTree = "<group>"; };
 		9E7BA5292C3D82C700A5B0A7 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		9E7BA52B2C3D84B900A5B0A7 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		9E7BA52D2C3DE2FF00A5B0A7 /* Station+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Station+Extensions.swift"; sourceTree = "<group>"; };
+		9E7BA52F2C3DF45800A5B0A7 /* EVSEStatusesRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEStatusesRoot.swift; sourceTree = "<group>"; };
+		9E7BA5312C3DF6FE00A5B0A7 /* StationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationState.swift; sourceTree = "<group>"; };
+		9E7BA5332C3DFAFE00A5B0A7 /* EVSEStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEStatus.swift; sourceTree = "<group>"; };
+		9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEStatusRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				9E7BA51C2C3D7FC400A5B0A7 /* Decoding */,
+				9E7BA5312C3DF6FE00A5B0A7 /* StationState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 			children = (
 				9E7BA50D2C3C867C00A5B0A7 /* OSLog+Extensions.swift */,
 				9E7BA5292C3D82C700A5B0A7 /* Data+Extensions.swift */,
+				9E7BA52D2C3DE2FF00A5B0A7 /* Station+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +246,9 @@
 				9E7BA5212C3D7FFA00A5B0A7 /* EVSEDataRecord.swift */,
 				9E7BA5232C3D802100A5B0A7 /* GeoCoordinates.swift */,
 				9E7BA5252C3D804200A5B0A7 /* ChargingFacility.swift */,
+				9E7BA52F2C3DF45800A5B0A7 /* EVSEStatusesRoot.swift */,
+				9E7BA5332C3DFAFE00A5B0A7 /* EVSEStatus.swift */,
+				9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */,
 			);
 			path = Decoding;
 			sourceTree = "<group>";
@@ -374,17 +389,22 @@
 				9E7BA52A2C3D82C700A5B0A7 /* Data+Extensions.swift in Sources */,
 				9E7BA5242C3D802100A5B0A7 /* GeoCoordinates.swift in Sources */,
 				9E7BA5192C3CACE300A5B0A7 /* StationRemoteRepository.swift in Sources */,
+				9E7BA52E2C3DE2FF00A5B0A7 /* Station+Extensions.swift in Sources */,
 				9E7BA4D22C3C83F400A5B0A7 /* AppDelegate.swift in Sources */,
 				9E7BA5122C3C8BB600A5B0A7 /* MainTabBarController.swift in Sources */,
 				9E7BA5202C3D7FE400A5B0A7 /* EVSEData.swift in Sources */,
 				9E7BA52C2C3D84B900A5B0A7 /* AppConfig.swift in Sources */,
 				9E7BA5222C3D7FFA00A5B0A7 /* EVSEDataRecord.swift in Sources */,
 				9E7BA5262C3D804200A5B0A7 /* ChargingFacility.swift in Sources */,
+				9E7BA5302C3DF45800A5B0A7 /* EVSEStatusesRoot.swift in Sources */,
 				9E7BA4D42C3C83F400A5B0A7 /* SceneDelegate.swift in Sources */,
 				9E7BA4DC2C3C83F400A5B0A7 /* Vilea.xcdatamodeld in Sources */,
+				9E7BA5342C3DFAFE00A5B0A7 /* EVSEStatus.swift in Sources */,
 				9E7BA5152C3CA92100A5B0A7 /* StationRepository.swift in Sources */,
+				9E7BA5322C3DF6FE00A5B0A7 /* StationState.swift in Sources */,
 				9E7BA5172C3CACDB00A5B0A7 /* StationLocalRepository.swift in Sources */,
 				9E7BA5102C3C897800A5B0A7 /* ListViewController.swift in Sources */,
+				9E7BA5362C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,4 +12,9 @@ class StationRemoteRepository {
         let (data, _) = try await URLSession.shared.data(from: AppConfig.API.staticDataURL, delegate: nil)
         return data
     }
+
+    func fetchDynamicData() async throws -> Data {
+        let (data, _) = try await URLSession.shared.data(from: AppConfig.API.dynamicDataURL, delegate: nil)
+        return data
+    }
 }
