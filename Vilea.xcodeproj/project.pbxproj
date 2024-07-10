@@ -59,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		9E5E202B2C3F33CA0019CEA0 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		9E5E20312C3F46DD0019CEA0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9E7BA4CE2C3C83F400A5B0A7 /* Vilea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vilea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7BA4D12C3C83F400A5B0A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E7BA4D32C3C83F400A5B0A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		9E7BA4C52C3C83F400A5B0A7 = {
 			isa = PBXGroup;
 			children = (
+				9E5E20312C3F46DD0019CEA0 /* README.md */,
 				9E7BA4D02C3C83F400A5B0A7 /* Vilea */,
 				9E7BA4EA2C3C83F500A5B0A7 /* VileaTests */,
 				9E7BA4F42C3C83F500A5B0A7 /* VileaUITests */,
