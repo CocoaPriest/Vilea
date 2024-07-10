@@ -73,6 +73,7 @@ class MapViewController: UIViewController {
         switch state {
         case .loaded(let stations):
             OSLog.general.log("number of stations: \(stations.count)")
+            mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotations(stations)
         case .failed:
             OSLog.general.error("failed to load static data")

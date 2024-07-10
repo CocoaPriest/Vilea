@@ -11,6 +11,8 @@ import OSLog
 
 class MainTabBarController: UITabBarController {
 
+    // TODO: in scenedelegate / viewModel?
+    private var timer: Timer?
     private let stationRepository = StationRepository()
 
     override func viewDidLoad() {
@@ -29,7 +31,21 @@ class MainTabBarController: UITabBarController {
         viewControllers = [mapViewController, listViewController]
 
         stationRepository.fetchStations()
+        startTimer()
+
         // for offline:
 //        stationRepository.loadCachedData()
+    }
+
+    private func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 20.0, repeats: true) { [weak self] _ in
+            self?.timerFired()
+        }
+
+        RunLoop.current.add(timer!, forMode: .common)
+    }
+
+    private func timerFired() {
+        stationRepository.fetchStations()
     }
 }
