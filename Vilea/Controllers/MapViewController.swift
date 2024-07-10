@@ -103,7 +103,7 @@ extension MapViewController: MKMapViewDelegate {
         }
 
         annotationView?.glyphImage = UIImage(systemName: "ev.charger")
-        annotationView?.markerTintColor = station.isAvailabile ? .systemGreen : .systemBrown
+        annotationView?.markerTintColor = station.availability.tintColor
 
         return annotationView
     }

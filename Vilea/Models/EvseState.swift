@@ -5,7 +5,7 @@
 //  Created by Konstantin Gonikman on 10.07.24.
 //
 
-import Foundation
+import UIKit
 
 enum EvseAvailability: String {
     case unknown = "Unknown"
@@ -13,6 +13,22 @@ enum EvseAvailability: String {
     case outOfService = "OutOfService"
     case available = "Available"
 }
+
+extension EvseAvailability {
+    var tintColor: UIColor {
+        switch self {
+        case .unknown:
+            return .lightGray
+        case .occupied:
+            return .systemRed
+        case .outOfService:
+            return .darkGray
+        case .available:
+            return .systemGreen
+        }
+    }
+}
+
 
 struct EvseState {
     let evseId: String

@@ -27,15 +27,12 @@ struct StationsListView: View {
                         .font(.body)
                         .fontWeight(.bold)
 
-                    Text("\(station.maxPower)kW")
-                        .font(.body)
-
                     HStack {
-                        Text("isAvailabile:") // TODO:
-                            .font(.body)
-
                         Image(systemName: "ev.charger")
-                            .foregroundColor(station.isAvailabile ? .green : .red)
+                            .foregroundColor(Color(station.availability.tintColor))
+
+                        Text("\(station.maxPower)kW")
+                            .font(.body)
                     }
 
                     if let lastUpdate = station.lastUpdate {
@@ -61,15 +58,27 @@ struct StationsListView: View {
                              maxPower: 22,
                              coordinate: CLLocationCoordinate2D(latitude: 22, longitude: 9),
                              lastUpdate: Date(),
-                             isAvailabile: true)
+                              availability: .available)
 
-    let stat2 = UniqueStation(stationId: "3",
+    let stat2 = UniqueStation(stationId: "2",
                               maxPower: 11,
                               coordinate: CLLocationCoordinate2D(latitude: 12, longitude: 9),
                               lastUpdate: Date(),
-                              isAvailabile: false)
+                              availability: .occupied)
+
+    let stat3 = UniqueStation(stationId: "3",
+                              maxPower: 22,
+                              coordinate: CLLocationCoordinate2D(latitude: 22, longitude: 9),
+                              lastUpdate: Date(),
+                              availability: .outOfService)
+
+    let stat4 = UniqueStation(stationId: "4",
+                              maxPower: 11,
+                              coordinate: CLLocationCoordinate2D(latitude: 12, longitude: 9),
+                              lastUpdate: Date(),
+                              availability: .unknown)
 
     let stationsViewModel = StationsViewModel()
-    stationsViewModel.stations = [stat1, stat2]
+    stationsViewModel.stations = [stat1, stat2, stat3, stat4]
     return StationsListView(viewModel: stationsViewModel)
 }

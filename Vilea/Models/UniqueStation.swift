@@ -13,7 +13,7 @@ class UniqueStation: NSObject {
     let maxPower: Int
     let coordinate: CLLocationCoordinate2D
     let lastUpdate: Date?
-    let isAvailabile: Bool
+    let availability: EvseAvailability
 
     override var hash: Int {
         var hasher = Hasher()
@@ -25,12 +25,12 @@ class UniqueStation: NSObject {
         return lhs.stationId == rhs.stationId
     }
 
-    init(stationId: String, maxPower: Int, coordinate: CLLocationCoordinate2D, lastUpdate: Date?, isAvailabile: Bool) {
+    init(stationId: String, maxPower: Int, coordinate: CLLocationCoordinate2D, lastUpdate: Date?, availability: EvseAvailability) {
         self.stationId = stationId
         self.maxPower = maxPower
         self.coordinate = coordinate
         self.lastUpdate = lastUpdate
-        self.isAvailabile = isAvailabile
+        self.availability = availability
         super.init()
     }
 }

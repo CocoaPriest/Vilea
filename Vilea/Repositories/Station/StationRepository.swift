@@ -49,7 +49,7 @@ class StationRepository {
                 
                 let evseStatusesRoot: EVSEStatusesRoot = try dynamicData.decoded()
                 let evseStates = await local.storeDynamicStationData(evseStatusesRoot)
-                updateDataState(cachedStations, evseStates: evseStates)
+                updateLoadState(cachedStations, evseStates: evseStates)
             } catch {
                 OSLog.general.error("Failure occured during fetching dynamic data: \(error.localizedDescription)")
             }
@@ -66,16 +66,16 @@ class StationRepository {
             }
 
             let evseStates = await local.evseStates()
-            updateDataState(cachedStations, evseStates: evseStates)
+            updateLoadState(cachedStations, evseStates: evseStates)
         }
     }
 
     // Combine stations to unique ones + set availability states and emit
-    private func updateDataState(_ stations: [Station], evseStates: [EvseState]) {
+    private func updateLoadState(_ stations: [Station], evseStates: [EvseState]) {
         // Preprocess => perfomance
-        var stationAvailability: [String: Bool] = [:]
+        var evseAvailability: [String: EvseAvailability] = [:]
         for state in evseStates {
-            stationAvailability[state.evseId, default: false] = state.availability == .available
+            evseAvailability[state.evseId, default: .unknown] = state.availability
         }
 
         var groupedStations: [String: [Station]] = [:]
@@ -90,13 +90,37 @@ class StationRepository {
                 return powerSet.map { Int($0.val) }
             }.max() ?? 0
 
-            let isAvailable = stationAvailability[stationId] ?? false
+            let isAvailable = evseItems.contains { evseItem in
+                guard let evseId = evseItem.evseId else { return false }
+                return evseAvailability[evseId] == .available
+            }
+
+            let isOccupied = evseItems.allSatisfy { evseItem in
+                guard let evseId = evseItem.evseId else { return false }
+                return evseAvailability[evseId] == .occupied
+            }
+
+            let isOutOfService = evseItems.allSatisfy { evseItem in
+                guard let evseId = evseItem.evseId else { return false }
+                return evseAvailability[evseId] == .outOfService
+            }
+
+            let availability: EvseAvailability
+            if isAvailable {
+                availability = .available
+            } else if isOccupied {
+                availability = .occupied
+            } else if isOutOfService {
+                availability = .outOfService
+            } else {
+                availability = .unknown
+            }
 
             return UniqueStation(stationId: stationId,
                                  maxPower: maxPower,
                                  coordinate: evseItems[0].location.coordinate,
                                  lastUpdate: evseItems[0].lastUpdate,
-                                 isAvailabile: isAvailable)
+                                 availability: availability)
         }
 
         loadState = .loaded(uniqueStations)
