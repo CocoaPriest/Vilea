@@ -16,8 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         OSLog.general.debug("=> scene:willConnectTo")
 
+        let mainTabViewModel = MainTabViewModel()
+
         let window = UIWindow(windowScene: scene)
-        window.rootViewController = MainTabBarController()
+        window.rootViewController = MainTabBarController(viewModel: mainTabViewModel)
         window.makeKeyAndVisible()
         self.window = window
     }
@@ -52,7 +54,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
 }
-

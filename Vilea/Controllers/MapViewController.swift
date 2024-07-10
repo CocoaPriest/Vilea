@@ -13,6 +13,7 @@ import Combine
 class MapViewController: UIViewController {
 
     private let stationRepository: StationRepository
+    private let locationPublisher: Published<CLLocation?>.Publisher
     private var cancellables = Set<AnyCancellable>()
 
     private lazy var mapView: MKMapView = {
@@ -23,8 +24,9 @@ class MapViewController: UIViewController {
 
     // MARK: - Initialization
 
-    public init(stationRepository: StationRepository) {
+    public init(stationRepository: StationRepository, locationPublisher: Published<CLLocation?>.Publisher) {
         self.stationRepository = stationRepository
+        self.locationPublisher = locationPublisher
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -59,6 +61,14 @@ class MapViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: self.handleLoadState)
             .store(in: &cancellables)
+
+        locationPublisher
+            .compactMap { $0 }
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] userLocation in
+                self?.updateOwnLocation(userLocation)
+            })
+            .store(in: &cancellables)
     }
 
     private func handleLoadState(state: StationRepository.LoadState) {
@@ -73,7 +83,7 @@ class MapViewController: UIViewController {
         }
     }
 
-    func updateOwnLocation(_ location: CLLocation) {
+    private func updateOwnLocation(_ location: CLLocation) {
         // Center map on user's location (1km radius)
         let region = MKCoordinateRegion(
             center: location.coordinate,

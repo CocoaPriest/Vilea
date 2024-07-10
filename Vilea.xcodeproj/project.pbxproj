@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E5E202C2C3F33CA0019CEA0 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5E202B2C3F33CA0019CEA0 /* MainTabViewModel.swift */; };
 		9E7BA4D22C3C83F400A5B0A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA4D12C3C83F400A5B0A7 /* AppDelegate.swift */; };
 		9E7BA4D42C3C83F400A5B0A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA4D32C3C83F400A5B0A7 /* SceneDelegate.swift */; };
 		9E7BA4D62C3C83F400A5B0A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA4D52C3C83F400A5B0A7 /* MapViewController.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E5E202B2C3F33CA0019CEA0 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		9E7BA4CE2C3C83F400A5B0A7 /* Vilea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vilea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7BA4D12C3C83F400A5B0A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E7BA4D32C3C83F400A5B0A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				9E7BA53E2C3EFD1800A5B0A7 /* StationsViewModel.swift */,
+				9E5E202B2C3F33CA0019CEA0 /* MainTabViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				9E7BA53C2C3EF95100A5B0A7 /* StationsListView.swift in Sources */,
 				9E7BA5192C3CACE300A5B0A7 /* StationRemoteRepository.swift in Sources */,
 				9E7BA52E2C3DE2FF00A5B0A7 /* Station+Extensions.swift in Sources */,
+				9E5E202C2C3F33CA0019CEA0 /* MainTabViewModel.swift in Sources */,
 				9E7BA53A2C3EB97200A5B0A7 /* UniqueStation.swift in Sources */,
 				9E7BA4D22C3C83F400A5B0A7 /* AppDelegate.swift in Sources */,
 				9E7BA5122C3C8BB600A5B0A7 /* MainTabBarController.swift in Sources */,

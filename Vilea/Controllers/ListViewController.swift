@@ -16,8 +16,7 @@ class ListViewController: UIViewController {
     private let stationRepository: StationRepository
     private var stationsViewModel = StationsViewModel()
     private var cancellables = Set<AnyCancellable>()
-
-    private(set) var userLocation: PassthroughSubject<CLLocation, Never> = .init()
+    private let locationPublisher: Published<CLLocation?>.Publisher
 
     private lazy var stationsListView: UIHostingController<StationsListView> = {
         return UIHostingController(rootView: StationsListView(viewModel: stationsViewModel))
@@ -25,11 +24,10 @@ class ListViewController: UIViewController {
 
     // MARK: - Initialization
 
-    public init(stationRepository: StationRepository) {
+    public init(stationRepository: StationRepository, locationPublisher: Published<CLLocation?>.Publisher) {
         self.stationRepository = stationRepository
+        self.locationPublisher = locationPublisher
         super.init(nibName: nil, bundle: nil)
-
-        self.setupBindings()
     }
 
     required init?(coder: NSCoder) {
@@ -40,6 +38,7 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        setupBindings()
     }
 
     private func setupUI() {
@@ -59,7 +58,7 @@ class ListViewController: UIViewController {
 
     private func setupBindings() {
         stationRepository.$loadState
-            .combineLatest(userLocation)
+            .combineLatest(locationPublisher.compactMap { $0 })
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: self.handleLoadState)
             .store(in: &cancellables)
