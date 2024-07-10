@@ -7,14 +7,12 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 import OSLog
 import Combine
 
 class MapViewController: UIViewController {
 
     private let stationRepository: StationRepository
-    private let locationManager = CLLocationManager()
     private var cancellables = Set<AnyCancellable>()
 
     private lazy var mapView: MKMapView = {
@@ -40,7 +38,6 @@ class MapViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         setupMapView()
-        setupLocationManager()
         setupBindings()
     }
 
@@ -57,11 +54,6 @@ class MapViewController: UIViewController {
         ])
     }
 
-    private func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-
     private func setupBindings() {
         stationRepository.$loadState
             .receive(on: DispatchQueue.main)
@@ -72,35 +64,16 @@ class MapViewController: UIViewController {
     private func handleLoadState(state: StationRepository.LoadState) {
         switch state {
         case .loaded(let stations):
-            OSLog.general.log("number of stations: \(stations.count)")
+            OSLog.map.log("number of stations: \(stations.count)")
             mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotations(stations)
         case .failed:
-            OSLog.general.error("failed to load static data")
+            OSLog.map.error("failed to load static data")
         default: break
         }
     }
-}
 
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways:
-            manager.startUpdatingLocation()
-        case .notDetermined:
-            manager.requestWhenInUseAuthorization()
-        case .denied:
-            OSLog.map.error("Error: location Authorization denied.")
-        default:
-            OSLog.map.warning("-")
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-
-        OSLog.map.log("User's location: \(location.coordinate.latitude),\(location.coordinate.longitude)")
-
+    func updateOwnLocation(_ location: CLLocation) {
         // Center map on user's location (1km radius)
         let region = MKCoordinateRegion(
             center: location.coordinate,
@@ -109,11 +82,6 @@ extension MapViewController: CLLocationManagerDelegate {
         )
 
         mapView.setRegion(region, animated: true)
-        manager.stopUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        OSLog.map.error("Error: \(error.localizedDescription)")
     }
 }
 

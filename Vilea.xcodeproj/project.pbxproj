@@ -35,6 +35,8 @@
 		9E7BA5342C3DFAFE00A5B0A7 /* EVSEStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5332C3DFAFE00A5B0A7 /* EVSEStatus.swift */; };
 		9E7BA5362C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */; };
 		9E7BA53A2C3EB97200A5B0A7 /* UniqueStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5392C3EB97200A5B0A7 /* UniqueStation.swift */; };
+		9E7BA53C2C3EF95100A5B0A7 /* StationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA53B2C3EF95000A5B0A7 /* StationsListView.swift */; };
+		9E7BA53F2C3EFD1800A5B0A7 /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA53E2C3EFD1800A5B0A7 /* StationsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		9E7BA5332C3DFAFE00A5B0A7 /* EVSEStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEStatus.swift; sourceTree = "<group>"; };
 		9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEStatusRecord.swift; sourceTree = "<group>"; };
 		9E7BA5392C3EB97200A5B0A7 /* UniqueStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueStation.swift; sourceTree = "<group>"; };
+		9E7BA53B2C3EF95000A5B0A7 /* StationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsListView.swift; sourceTree = "<group>"; };
+		9E7BA53E2C3EFD1800A5B0A7 /* StationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				9E7BA5042C3C858900A5B0A7 /* Application */,
 				9E7BA5052C3C85C200A5B0A7 /* Controllers */,
 				9E7BA5062C3C85DB00A5B0A7 /* Repositories */,
+				9E7BA53D2C3EFCD600A5B0A7 /* ViewModels */,
 				9E7BA5072C3C85F200A5B0A7 /* Models */,
 				9E7BA5082C3C860400A5B0A7 /* Utilities */,
 				9E7BA5092C3C860B00A5B0A7 /* Extensions */,
@@ -180,6 +185,7 @@
 				9E7BA5112C3C8BB600A5B0A7 /* MainTabBarController.swift */,
 				9E7BA4D52C3C83F400A5B0A7 /* MapViewController.swift */,
 				9E7BA50F2C3C897800A5B0A7 /* ListViewController.swift */,
+				9E7BA53B2C3EF95000A5B0A7 /* StationsListView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -254,6 +260,14 @@
 				9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */,
 			);
 			path = Decoding;
+			sourceTree = "<group>";
+		};
+		9E7BA53D2C3EFCD600A5B0A7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9E7BA53E2C3EFD1800A5B0A7 /* StationsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,8 +403,10 @@
 				9E7BA51E2C3D7FD100A5B0A7 /* EVSERoot.swift in Sources */,
 				9E7BA50E2C3C867C00A5B0A7 /* OSLog+Extensions.swift in Sources */,
 				9E7BA4D62C3C83F400A5B0A7 /* MapViewController.swift in Sources */,
+				9E7BA53F2C3EFD1800A5B0A7 /* StationsViewModel.swift in Sources */,
 				9E7BA52A2C3D82C700A5B0A7 /* Data+Extensions.swift in Sources */,
 				9E7BA5242C3D802100A5B0A7 /* GeoCoordinates.swift in Sources */,
+				9E7BA53C2C3EF95100A5B0A7 /* StationsListView.swift in Sources */,
 				9E7BA5192C3CACE300A5B0A7 /* StationRemoteRepository.swift in Sources */,
 				9E7BA52E2C3DE2FF00A5B0A7 /* Station+Extensions.swift in Sources */,
 				9E7BA53A2C3EB97200A5B0A7 /* UniqueStation.swift in Sources */,
