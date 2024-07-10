@@ -15,7 +15,7 @@ class StationRepository {
         case `default`
         case loading
         case failed
-        case loaded(Set<UniqueStation>)
+        case loaded([UniqueStation])
     }
 
     @Published private(set) var loadState: LoadState = .default
@@ -99,6 +99,6 @@ class StationRepository {
                                  isAvailabile: isAvailable)
         }
 
-        loadState = .loaded(Set(uniqueStations))
+        loadState = .loaded(uniqueStations)
     }
 }

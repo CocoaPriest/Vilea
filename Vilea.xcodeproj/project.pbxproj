@@ -34,7 +34,6 @@
 		9E7BA5322C3DF6FE00A5B0A7 /* EvseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5312C3DF6FE00A5B0A7 /* EvseState.swift */; };
 		9E7BA5342C3DFAFE00A5B0A7 /* EVSEStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5332C3DFAFE00A5B0A7 /* EVSEStatus.swift */; };
 		9E7BA5362C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */; };
-		9E7BA5382C3E0B3200A5B0A7 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5372C3E0B3200A5B0A7 /* StationAnnotation.swift */; };
 		9E7BA53A2C3EB97200A5B0A7 /* UniqueStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BA5392C3EB97200A5B0A7 /* UniqueStation.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +86,6 @@
 		9E7BA5312C3DF6FE00A5B0A7 /* EvseState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvseState.swift; sourceTree = "<group>"; };
 		9E7BA5332C3DFAFE00A5B0A7 /* EVSEStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEStatus.swift; sourceTree = "<group>"; };
 		9E7BA5352C3DFB0A00A5B0A7 /* EVSEStatusRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVSEStatusRecord.swift; sourceTree = "<group>"; };
-		9E7BA5372C3E0B3200A5B0A7 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
 		9E7BA5392C3EB97200A5B0A7 /* UniqueStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueStation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,7 +198,6 @@
 				9E7BA51C2C3D7FC400A5B0A7 /* Decoding */,
 				9E7BA5312C3DF6FE00A5B0A7 /* EvseState.swift */,
 				9E7BA5392C3EB97200A5B0A7 /* UniqueStation.swift */,
-				9E7BA5372C3E0B3200A5B0A7 /* StationAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,7 +401,6 @@
 				9E7BA5222C3D7FFA00A5B0A7 /* EVSEDataRecord.swift in Sources */,
 				9E7BA5262C3D804200A5B0A7 /* ChargingFacility.swift in Sources */,
 				9E7BA5302C3DF45800A5B0A7 /* EVSEStatusesRoot.swift in Sources */,
-				9E7BA5382C3E0B3200A5B0A7 /* StationAnnotation.swift in Sources */,
 				9E7BA4D42C3C83F400A5B0A7 /* SceneDelegate.swift in Sources */,
 				9E7BA4DC2C3C83F400A5B0A7 /* Vilea.xcdatamodeld in Sources */,
 				9E7BA5342C3DFAFE00A5B0A7 /* EVSEStatus.swift in Sources */,

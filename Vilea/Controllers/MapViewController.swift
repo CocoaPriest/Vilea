@@ -73,8 +73,7 @@ class MapViewController: UIViewController {
         switch state {
         case .loaded(let stations):
             OSLog.general.log("number of stations: \(stations.count)")
-            let annotations = stations.map { StationAnnotation(uniqueStation: $0) }
-            mapView.addAnnotations(annotations)
+            mapView.addAnnotations(stations)
         case .failed:
             OSLog.general.error("failed to load static data")
         default: break
@@ -119,23 +118,23 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let stationAnnotation = annotation as? StationAnnotation else { return nil }
+        guard let station = annotation as? UniqueStation else { return nil }
 
         let identifier = "StationAnnotation"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
 
         if annotationView == nil {
-            annotationView = MKMarkerAnnotationView(annotation: stationAnnotation, reuseIdentifier: identifier)
+            annotationView = MKMarkerAnnotationView(annotation: station, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
 
             let infoButton = UIButton(type: .detailDisclosure)
             annotationView?.rightCalloutAccessoryView = infoButton
         } else {
-            annotationView?.annotation = stationAnnotation
+            annotationView?.annotation = station
         }
 
         annotationView?.glyphImage = UIImage(systemName: "ev.charger")
-        annotationView?.markerTintColor = stationAnnotation.isAvailabile ? .systemGreen : .systemBrown
+        annotationView?.markerTintColor = station.isAvailabile ? .systemGreen : .systemBrown
 
         return annotationView
     }
