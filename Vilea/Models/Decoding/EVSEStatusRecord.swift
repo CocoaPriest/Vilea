@@ -8,11 +8,11 @@
 import Foundation
 
 struct EVSEStatusRecord: Decodable {
-    let stationId: String
+    let evseId: String
     let status: String
 
     enum CodingKeys: String, CodingKey {
-        case stationId = "EvseID"
+        case evseId = "EvseID"
         case status = "EVSEStatus"
     }
 }

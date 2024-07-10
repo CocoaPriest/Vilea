@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Power" representedClassName="Power" syncable="YES" codeGenerationType="class">
+        <attribute name="val" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="station" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Station" inverseName="power" inverseEntity="Station"/>
+    </entity>
     <entity name="State" representedClassName="State" syncable="YES" codeGenerationType="class">
         <attribute name="availability" optional="YES" attributeType="String"/>
-        <attribute name="stationId" optional="YES" attributeType="String"/>
+        <attribute name="evseId" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Station" representedClassName="Station" syncable="YES" codeGenerationType="class">
+        <attribute name="evseId" optional="YES" attributeType="String"/>
         <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="power" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="stationId" attributeType="String"/>
+        <relationship name="power" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Power" inverseName="station" inverseEntity="Power"/>
     </entity>
 </model>

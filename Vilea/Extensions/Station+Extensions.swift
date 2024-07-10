@@ -9,11 +9,7 @@ import Foundation
 import CoreLocation
 
 extension Station {
-    var location: CLLocation? {
-        guard latitude != 0 && longitude != 0 else {
-            return nil
-        }
-
+    var location: CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
 }

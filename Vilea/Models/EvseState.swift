@@ -1,5 +1,5 @@
 //
-//  StationState.swift
+//  EvseState.swift
 //  Vilea
 //
 //  Created by Konstantin Gonikman on 10.07.24.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum StationAvailability: String {
+enum EvseAvailability: String {
     case unknown = "Unknown"
     case occupied = "Occupied"
     case outOfService = "OutOfService"
     case available = "Available"
 }
 
-struct StationState {
-    let stationId: String
-    let availability: StationAvailability
+struct EvseState {
+    let evseId: String
+    let availability: EvseAvailability
 }

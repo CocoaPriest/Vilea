@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import Combine
+import OSLog
 
 class MainTabBarController: UITabBarController {
+
+    private let stationRepository = StationRepository()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mapViewController = MapViewController()
+        let mapViewController = MapViewController(stationRepository: stationRepository)
         mapViewController.tabBarItem.title = "Map"
         mapViewController.tabBarItem.image = UIImage(systemName: "map")
         mapViewController.tabBarItem.selectedImage = UIImage(systemName: "map.fill")
@@ -23,5 +27,9 @@ class MainTabBarController: UITabBarController {
         listViewController.tabBarItem.selectedImage = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
 
         viewControllers = [mapViewController, listViewController]
+
+        stationRepository.fetchStations()
+        // for offline:
+//        stationRepository.loadCachedData()
     }
 }
