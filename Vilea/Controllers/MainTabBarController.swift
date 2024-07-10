@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import OSLog
+import Network
 
 class MainTabBarController: UITabBarController {
 
@@ -30,12 +31,19 @@ class MainTabBarController: UITabBarController {
 
         viewControllers = [mapViewController, listViewController]
 
-        stationRepository.fetchStations()
-        startTimer()
+        checkConnectivity { [weak self] isConnected in
+            OSLog.general.log("Connectivity status: \(isConnected)")
 
-        // for offline:
-//        stationRepository.loadCachedData()
+            if isConnected {
+                self?.stationRepository.fetchStations()
+                self?.startTimer()
+            } else {
+                self?.stationRepository.loadCachedData()
+            }
+        }
     }
+
+    // MARK: - auto-reload -
 
     private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 20.0, repeats: true) { [weak self] _ in
@@ -47,5 +55,23 @@ class MainTabBarController: UITabBarController {
 
     private func timerFired() {
         stationRepository.fetchStations()
+    }
+
+    // MARK: - connectivity -
+
+    func checkConnectivity(completion: @escaping (Bool) -> Void) {
+        let monitor = NWPathMonitor()
+        let queue = DispatchQueue(label: "NetworkMonitor")
+
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                completion(true)
+            } else {
+                completion(false)
+            }
+            monitor.cancel()
+        }
+
+        monitor.start(queue: queue)
     }
 }
